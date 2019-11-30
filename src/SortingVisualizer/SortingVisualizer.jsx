@@ -87,30 +87,6 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
-  heapSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
-
-  bubbleSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
-  }
-
-  // NOTE: This method will only work if the sorting algorithms actually return
-  // the sorted arrays; if they return the animations (as they currently do), then
-  // this method will be broken.
-  testSortingAlgorithms() {
-    for (let i = 0; i < 10; i++) {
-      const array = [];
-      const length = randomIntFromInterval(1, 10);
-      for (let i = 0; i < length; i++) {
-        array.push(randomIntFromInterval(-1000, 1000));
-      }
-      const javaScriptSortedArray = array.slice().sort((a, b) => a - b);
-      const mergeSortedArray = getQuickSortAnimations(array.slice());
-      console.log(arraysAreEqual(javaScriptSortedArray, mergeSortedArray));
-    }
-  }
-
   render() {
     const { array } = this.state;
 
@@ -128,11 +104,6 @@ export default class SortingVisualizer extends React.Component {
         <button onClick={() => this.resetArray()}>Generate New Array</button>
         <button onClick={() => this.mergeSort()}>Merge Sort</button>
         <button onClick={() => this.quickSort()}>Quick Sort</button>
-        <button onClick={() => this.heapSort()}>Heap Sort</button>
-        <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-        <button onClick={() => this.testSortingAlgorithms()}>
-          Test Sorting Algorithms (BROKEN)
-        </button>
       </div>
     );
   }
